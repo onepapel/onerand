@@ -37,7 +37,7 @@ export class ONERAND {
         throw new OneError('Invalid draw link format', 'INVALID_LINK');
       }
 
-      const response = await fetch(`http://localhost:5000/api/public/onerand?slug=${slug}`);
+      const response = await fetch(`https://onepapel.com/api/public/onerand?slug=${slug}`);
 
       if (!response.ok) {
         throw new OneError(`API request failed with status ${response.status}`, 'API_ERROR');
@@ -69,7 +69,7 @@ export class ONERAND {
   }
 
   private delay(ms: number = 500) {
-    return new Promise((resolve) => setTimeout(resolve, 200));
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   async chooseOne(onStep: (message: string) => void) {
